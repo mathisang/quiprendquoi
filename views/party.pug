@@ -30,3 +30,6 @@ table
             td
                 form(method="post" action=`/party/${party._id}/items/${item._id}/remove`)
                     button(type="submit") Supprimer
+    else
+        tr
+            td(colspan="3") Aucun ajout
