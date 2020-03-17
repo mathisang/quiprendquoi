@@ -17,3 +17,12 @@ form(method="post" action=`/party/${party._id}/items`)
         br
         input(name="user" id="user" required minlength="3" placeholder="Michael")
     button(type="submit") Créer
+br
+table
+    tr
+        th Nom
+        th Ramène
+    each item in party.items
+        tr
+            td= item.user
+            td= item.name
