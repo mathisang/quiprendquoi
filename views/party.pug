@@ -22,7 +22,11 @@ table
     tr
         th Nom
         th Ramène
+        th Options
     each item in party.items
         tr
             td= item.user
             td= item.name
+            td
+                form(method="post" action=`/party/${party._id}/items/${item._id}/remove`)
+                    button(type="submit") Supprimer
