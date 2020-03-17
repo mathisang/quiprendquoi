@@ -3,4 +3,17 @@ h1= party.name
 h2 Page événement
 h3 Créé par #{party.author}
 label(for="url") Partagez l'événement
+br
 input(id="url" value=`${url}`)
+br
+br
+form(method="post" action=`/party/${party._id}/items`)
+    div
+        label(for="name") Je ramène
+        br
+        input(name="name" id="name" required minlength="3" placeholder="Champagne")
+    div
+        label(for="user") Votre pseudo
+        br
+        input(name="user" id="user" required minlength="3" placeholder="Michael")
+    button(type="submit") Créer
