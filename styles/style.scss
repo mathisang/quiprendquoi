@@ -1,9 +1,7 @@
 @import "vendors/reset.scss";
+@import "config/media.scss";
+@import "blocs/newParty.scss";
 
-form {
-  border: 1px solid blue;
-
-  div {
-    border: 1px solid green;
-  }
+body {
+  padding: 1em;
 }
