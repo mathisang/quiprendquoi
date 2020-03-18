@@ -4,7 +4,7 @@ h2 Page événement
 h3 Créé par #{party.author}
 label(for="url") Partagez l'événement
 br
-input(id="url" value=`${url}`)
+input(id="url" value=`${url}` data-clipboard=`${url}`)
 br
 br
 form(method="post" action=`/party/${party._id}/items`)
