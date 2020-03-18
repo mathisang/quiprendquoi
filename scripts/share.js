@@ -1,19 +1,16 @@
 if (navigator.share) {
-    console.log("Support du presse papier")
-    document.querySelectorAll('[data-share-url]').forEach(($clipboardEl) => {
+    document.querySelectorAll('[data-share-url]').forEach(($shareEl) => {
         const $button = document.createElement('button');
         $button.innerHTML = 'Partager';
-        $clipboardEl.parentNode.append($button);
+        $shareEl.parentNode.append($button);
         $button.addEventListener(
             'click',
-            shareUrl.bind(this, $clipboardEl, $button)
+            shareUrl.bind(this, $shareEl)
         );
     });
-} else {
-    console.warn("Pas de support")
 }
 
-function shareUrl() {
+function shareUrl($shareEl) {
     navigator
         .share({
             title: $shareEl.getAttribute('data-share-title'),
