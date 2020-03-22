@@ -1,37 +1,36 @@
 include ../partials/header.pug
 script.
     party = !{JSON.stringify(party)}
-h1= party.name
-h2 Page événement
-h3 Créé par #{party.author}
-label(for="url") Partagez l'événement
-br
-input(id="url" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` data-share-title=`${party.name}` data-share-text=`${party.author}` + " vous invite à rejoindre l'évènement " + `${party.name}`)
-br
-br
-form(method="post" action=`/party/${party._id}/items`)
-    div
-        label(for="name") Je ramène
-        br
-        input(name="name" id="name" required minlength="3" placeholder="Champagne")
-    div
-        label(for="user") Votre pseudo
-        br
-        input(name="user" id="user" required minlength="3" placeholder="Michael")
-    button(type="submit") Créer
-br
-table
-    tr
-        th Nom
-        th Ramène
-        th Options
-    each item in party.items
-        tr
-            td= item.user
-            td= item.name
-            td
-                form(method="post" action=`/party/${party._id}/items/${item._id}/remove`)
-                    button(type="submit") Supprimer
-    else
-        tr
-            td(colspan="3") Aucun ajout
+div(class="party")
+    div(class="head-party")
+        h1= party.name
+        span Créé par #{party.author}
+        h2 Page événement
+    div(class="share-event")
+        label(for="url") Partagez l'événement
+        input(id="url" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` data-share-title=`${party.name}` data-share-text=`${party.author}` + " vous invite à rejoindre l'évènement " + `${party.name}`)
+    div(class="add-item")
+        form(method="post" action=`/party/${party._id}/items`)
+            div
+                label(for="name") Je ramène
+                br
+                input(name="name" id="name" required minlength="3" placeholder="Champagne")
+            div
+                label(for="user") Votre pseudo
+                br
+                input(name="user" id="user" required minlength="3" placeholder="Michael")
+            button(type="submit") Créer
+    div(class="list-item")
+        table
+            tr
+                th(colspan="3") Liste de l'événement
+            each item in party.items
+                tr
+                    td= `${item.user}` + " ramène :"
+                    td= item.name
+                    td
+                        form(method="post" action=`/party/${party._id}/items/${item._id}/remove`)
+                            button(type="submit" class="delete") Supprimer
+            else
+                tr
+                    td(colspan="3") Aucun ajout

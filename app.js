@@ -14,7 +14,26 @@ app.get('/', function (req, res) {
     res.render('index', {title: "Qui prend quoi ?"});
 });
 
-// Création nouvel évènement
+// Recherche événement
+app.get('/search', function (req, res) {
+    res.render('search', {title: "Recherche un événement"});
+});
+
+// Accès recherche événement
+app.post('/search-party', (req, res) => {
+    axios
+        .get(`${process.env.API_URL}/party/${req.body.key}`)
+        .then(({data}) =>
+            res.render('party', {
+                party: data,
+                title: data.name,
+                url: `${process.env.FRONT_URL}:${process.env.PORT}/party/${data._id}`
+            }),
+        )
+        .catch((err) => console.log(err));
+});
+
+// Création nouvel événement
 app.post('/party', (req, res) => {
     axios
         .post(`${process.env.API_URL}/party`, req.body)
@@ -22,7 +41,7 @@ app.post('/party', (req, res) => {
         .catch((err) => res.send(err));
 });
 
-// Récupération évènement
+// Récupération événement
 app.get('/party/:id', function (req, res) {
     axios
         .get(`${process.env.API_URL}/party/${req.params.id}`)

@@ -3,5 +3,134 @@
 @import "blocs/newParty.scss";
 
 body {
-  padding: 1em;
+  $green: #00AA86;
+  $white: #FAFAFA;
+  $black: #333333;
+  $gray: #eeeeee;
+  $red: #ee5746;
+
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  background: $white;
+
+  button {
+    background: $green;
+    border: none;
+    color: white;
+    font-weight: 500;
+    padding: .5rem .75rem;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0 auto;
+  }
+
+  button.delete {
+    background: $red;
+    margin-bottom: .75rem;
+  }
+
+  nav {
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a {
+      text-decoration: none;
+      color: $black;
+      margin: 0 .5rem;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .party {
+    .share-event {
+      background: $gray;
+      padding: 1rem;
+      width: 20rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 3px;
+      margin: 2rem auto;
+
+      input {
+        margin: .5rem 0;
+        height: 2.5rem;
+        width: 14rem;
+      }
+    }
+
+    .head-party {
+      background: $green;
+      height: 10rem;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: $white;
+
+      span {
+        padding: .35rem .5rem;
+        background: $white;
+        color: $green;
+        text-transform: lowercase;
+        border-radius: 3px;
+        font-size: 12px;
+        margin: .5rem 0 1rem;
+      }
+
+      h1 {
+        font-size: 28px;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+    }
+
+    .add-item {
+      width: 100%;
+      max-width: 40rem;
+      background: $gray;
+      border-radius: 3px;
+      margin: 0 auto;
+      padding: 1.5rem;
+
+      input {
+        width: 100%;
+        height: 2.5rem;
+        margin: .5rem 0 1rem;
+      }
+
+      .newParty__fields {
+        div {
+          width: 100%;
+        }
+      }
+    }
+
+    .list-item {
+      margin-top: 3rem;
+      display: flex;
+      justify-content: center;
+
+      th {
+        padding-bottom: 1rem;
+      }
+
+      tr {
+        td {
+          padding: 0 .5rem;
+        }
+      }
+    }
+  }
 }

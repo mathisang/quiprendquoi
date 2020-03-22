@@ -1,0 +1,13 @@
+include ../partials/header.pug
+div(class="party")
+    div(class="head-party")
+        h1(style="margin-bottom: 1rem") Qui prend quoi ?
+        h2 Rechercher un événement
+    div(class="add-item" style="margin-top: 2rem")
+        form(method="post" action="/search-party")
+          div
+            div
+                label(for="key") Clé d'accès de l'événement
+                br
+                input(name="key" id="key" required minlength="3" placeholder="5e7793343d57b970f3813866")
+          button(type="submit") Accéder
